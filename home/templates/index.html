@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div id="main">
+        <div class="row blocks">
+            {% for i in shuffled|slice:'3' %}
+            <a class='col block post-link' href="{% url 'post' i.category i.slug %}">
+                <div>
+                    <div class="random-block">
+                        <h2>{{ i.title }}</h1>
+                        <p>{{ i.short_description }}</p>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+        <h1 id="title">Hey, I'm Nick Boddy</h1>
+        <p>This is a place to show you some projects of mine.</br>
+        Hover your mouse around this text!</p>
+        <div class="row blocks">
+            {% for i in shuffled|slice:'3:' %}
+            <a class='col block post-link' href="{% url 'post' i.category i.slug %}">
+                <div>
+                    <div class="random-block">
+                        <h2>{{ i.title }}</h1>
+                        <p>{{ i.short_description }}</p>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div id="main">
+    <div class="big-post">
+        {% if post.category == 'Photography' %}
+        <p>{{post.long_description|safe}}</p>
+        <p>this is a photo</p>
+        {% elif post.category == 'Programming' %}
+        <div class="row">
+            <div class="col">
+                <p>{{post.long_description}}</p>
+            </div>
+            <div class="col">
+                <p>this is a programming project</p>
+            </div>
+        </div>
+        {% elif post.category == 'Data' %}
+                <div class="data-content">
+                    <p>{{ post.long_description|safe }}</p>
+                </div>
+        {% else %}
+            <p>something messed up homie</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
